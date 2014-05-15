@@ -1,0 +1,38 @@
+//   Created by chinna on 22/4/14.
+
+#wrapper
+    #shop
+    // PAGE TITLE
+    header#page-title
+        .container
+            h1
+                strong Leaves
+            ul.breadcrumb
+                li.active Admin
+                li.active Leaves
+    section.container
+        .row
+            .col-xs-4.pull-right
+                input(type="search", class="form-control", ng-model="searchTerm", placeholder="search")
+        br
+        .row
+            .col-lg-12
+                table#leavesTable.table.table-bordered.table-hover.table-striped.tablesorter(ng-table='leavesTable')
+                    tr(ng-repeat="leave in $data | filter: searchTerm")
+                        td(data-title='"#"')
+                            a.btn.btn-warning(href='#/adminLeave/{{leave.leaveId}}', style="margin-left: 5px") Edit
+                            a.btn.btn-danger(ng-click="delete(leave.leaveId)", href='#/adminAbsents', style="margin-left: 5px") Delete
+                            //button.btn.btn-danger(ng-click="deleteAbsent(leave.leaveId)", style="margin-left: 10px")
+                            //    | Delete
+                        td(data-title='"Absent Code"', sortable='"leaveCode"')
+                            | {{leave.leaveCode}}
+                        td(data-title='"Absent Type"', sortable='"leaveType"')
+                            | {{leave.leaveType}}
+                        td(data-title='"Absent Category"', sortable='"leaveCategory"')
+                            | {{leave.leaveCategory}}
+                        td(data-title='"Max Number of Absents"', sortable='"leaveCount"')
+                            | {{leave.leaveCount}}
+
+                //div
+                //    button.btn.btn-danger(ng-click="deleteAbsent()", style="margin-left: 10px")
+                //        | Delete

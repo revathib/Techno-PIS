@@ -1,0 +1,13 @@
+//created by Amit on 18/3/14.
+doctype
+html(ng-app='PIS')
+    head
+        link(href="lib.min.css", rel="stylesheet")
+        link(href="all.min.css", rel="stylesheet")
+        script(src="lib.min.js")
+        script(src="app.min.js")
+        script(src="all.min.js")
+        title Personal Information System
+    body(style='', class='boxed')
+        div(ui-view="viewA")
+        div(ui-view="viewB")

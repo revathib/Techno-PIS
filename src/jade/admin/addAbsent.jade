@@ -1,0 +1,111 @@
+// Created by Revathi on 8/4/14.
+                                                                                                                                                                  #wrapper
+#wrapper
+    #shop
+        // PAGE TITLE
+        header#page-title
+            .container
+                h1 Add
+                    strong Absent
+                ul.breadcrumb
+                    li.active Admin
+                    li.active Manage Absent
+                    li.active Add Absent
+        section.container
+            .row
+                .col-lg-12
+                    .panel.panel-info.table-bordered
+                        .panel-body
+                            form#absentForm(
+                            name='addAbsentForm',
+                            type='form',
+                            class='form-horizontal',
+                            ng-submit='createAbsent()'
+                            )
+                                .form-group.has-warning
+                                    .col-lg-12
+                                        .alert.alert-success(ng-show="absentAdded")
+                                            i.fa.fa-check-circle-o
+                                            | Absent Added Successfully
+                                .form-group.has-warning
+                                    label.control-label(for='absent-type')
+                                        | Absent Code
+                                        span(style='color:red') *
+                                    div(ng-class="{ 'has-error' : addAbsentForm.absentCode.$invalid }")
+                                        input#leaveCode.form-control(
+                                            ng-model='absent.code',
+                                            type='text',
+                                            name='absentCode',
+                                            placeholder='Absent Code',
+                                            required,
+                                            autofocus)
+                                        small(
+                                            class="label label-danger",
+                                            ng-show="addAbsentForm.absentCode.$invalid && addAbsentForm.absentCode.$dirty"
+										) Absent Code Requried
+                                .form-group.has-warning
+                                    label.control-label(for='Absent-type')
+                                        | Absent Type
+                                        span(style='color:red') *
+                                    div(ng-class="{ 'has-error' : addAbsentForm.absentType.$invalid }")
+                                        input#absentType.form-control(
+                                            ng-model='absent.type',
+                                            type='text',
+                                            name='absentType',
+                                            placeholder='Absent Type',
+                                            required,
+                                            min=1)
+                                        small(
+                                            class="label label-danger",
+                                            ng-show="addAbsentForm.absentType.$invalid && addAbsentCount.absentType.$dirty"
+                                        ) Requried Absent Type
+                                .form-group.has-warning
+                                    label.control-label(for='absentCategory')
+                                    | Absent Category
+                                    span(style='color:red') *
+                                    select.form-control(
+                                        name='absentCategory',
+                                        ng-model='absent.category',
+                                        ng-selected="Select",
+                                        ng-options='c.categoryName as c.categoryName for c in absentCategories',
+                                        required)
+                                        option(value='',selected) -- Select Category--
+                                .form-group.has-warning
+                                    label.control-label(for='absent-count')
+                                        | Absent Count
+                                        span(style='color:red') *
+                                    div(ng-class="{ 'has-error' : addAbsentForm.absentCount.$invalid }")
+                                        input#absentCount.form-control(
+                                            ng-model='absent.count',
+                                            type='number',
+                                            name='absentCount',
+                                            placeholder='Absent Count',
+                                            required,
+                                            min=1)
+                                        small(
+                                            class="label label-danger",
+                                            ng-show="addAbsentForm.absentCount.$invalid && addAbsentCount.absentCount.$dirty"
+                                        ) Requried Absent Count
+                                .form-group.inline
+                                    input(type='checkbox',
+                                    name=gender,
+                                    ng-model='absent.female'
+                                    )
+                                    | &nbsp;
+                                    | Female
+                                    | &nbsp;
+                                    input(type='checkbox',
+                                    name=gender,
+                                    ng-model='absent.gender')
+                                    | &nbsp;
+                                    | Male
+                                    | &nbsp;
+                                    small(
+										class="label label-danger",
+										ng-show='addAbsentForm.gender.$invalid && addAbsentForm.gender.$dirty'
+                                    ) Requried
+                                div
+                                    button.btn.btn-info(ng-click="createNew()", style="margin-right: 10px", ng-disabled="addAbsentForm.$invalid")
+                                        //i.icon-user.icon-white
+                                        | Add
+                                    input.btn.btn-warning(type='reset', value='Reset')

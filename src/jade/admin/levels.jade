@@ -1,0 +1,33 @@
+//   Created by Revathi on 29/4/14.
+#wrapper
+    #shop
+    // PAGE TITLE
+    header#page-title
+        .container
+            h1
+                strong Levels
+            ul.breadcrumb
+                li.active Admin
+                li.active Levels
+    section.container
+        .row
+            .col-xs-4.pull-right
+                input(type="search",class="form-control", ng-model="searchTerm", placeholder="search")
+        br
+        .row
+            .col-lg-12
+                table#levelsTable.table.table-bordered.table-hover.table-striped.tablesorter(ng-table='levelsTable')
+                    tr(ng-repeat="level in $data | filter: searchTerm")
+                        td(data-title='"#"')
+                            a.btn.btn-warning(href='#/adminLevel/{{level.levelId}}', style="margin-left: 5px")
+                                i.fa.fa-edit
+                                //| Edit
+                            a.btn.btn-danger(ng-click="delete(level.levelId)", style="margin-left: 5px")
+                                i.fa.fa-trash-o
+                                //| Delete
+                        td(data-title='"Level Code"', sortable='"levelCode"')
+                            | {{level.levelCode}}
+                        td(data-title='"Level"', sortable='"level"')
+                            | {{level.levelName}}
+                        td(data-title='"Description"', sortable='"description"')
+                            | {{level.description}}

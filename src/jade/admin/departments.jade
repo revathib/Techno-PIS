@@ -1,0 +1,41 @@
+//   Created by chinna on 16/4/14.
+
+#wrapper
+    #shop
+    // PAGE TITLE
+    header#page-title
+        .container
+            h1
+                strong Departments
+            ul.breadcrumb
+                li.active Admin
+                li.active Departments
+    section.container
+        .row
+            div(class="col-xs-4 pull-right")
+                input(type="search", class="form-control", ng-model="searchTerm", placeholder="search")
+        br
+        .row
+            .col-lg-12
+                table#deptTable.table.table-bordered.table-hover.table-striped.tablesorter(ng-table)
+                    thead
+                        tr
+                            th Department Id
+                            th Department Name
+                            th Description
+                            th #
+                    tbody(ng-repeat='dept in departments | orderBy:predicate:reverse | filter: searchTerm ')
+                        tr
+                            td {{dept.deptId}}
+                            td {{dept.deptName}}
+                            td {{dept.description}}
+                            td
+                                a(href='#/adminAddDepartments/{{dept.deptId}}') Edit
+                pre(class="text-center") {{ maxPage(departments) }}
+                ul(class="pager pull-right")
+                    li(ng-class="{ disabled: pageSelected == 0 }")
+                        a(href="#", ng-click="changePage(usersList, -1)")  Previous
+                    li(ng-class="{ disabled: (pageSelected + 1) == maxPage(departments) }")
+                        a(href="#", ng-click="changePage(departments, 1)") Next
+
+

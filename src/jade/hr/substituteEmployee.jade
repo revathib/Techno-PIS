@@ -1,0 +1,42 @@
+//   Created by Revathi on 26/4/14.
+#wrapper
+    #shop
+        // PAGE TITLE
+        header#page-title
+            .container
+                h1 Substitute
+                    strong Employee
+                ul.breadcrumb
+                    li.active HR
+                    li.active Employee Leave
+        section.container
+            .row
+                .col-lg-12
+                    .panel.panel-info.table-bordered
+                        .panel-body
+                            .col-lg-12
+                                .alert.alert-success(ng-show="leaveSub")
+                                    i.fa.fa-check-circle-o
+                                    | Leave Substitute Submitted Successfully
+                            form#departmentForm(name="substituteEmpForm",class="form-horizontal",role="form",ng-submit='createNewDepartment()',novalidate)
+                                .form-group.has-warning
+                                    label.control-label(for='absentId') Absent ID
+                                    select.form-control(name='absentId',ng-model="sub.absentId",ng-selected="Select",ng-options='c.applicationID as c.applicationID for c in absentIds',required, ng-change="changeAbsentId()")
+                                        option(value='',selected) -- Absent ID--
+                                .form-group.has-warning
+                                    label.control-label(for='EmpId') Employee ID
+                                    input.form-control(type='text',name='empId',ng-model="sub.empId",min=0,placeholder="Employee ID",required,disabled)
+                                .form-group.has-warning
+                                    label.control-label(for='EmpId') substitute Employee ID
+                                        span(style='color:red') *
+                                    div(ng-class="{ 'has-error' : substituteEmpForm.empId2.$invalid }")
+                                        select.form-control(name='empId2',ng-model="sub.empId2",ng-selected="Select",ng-options='c.empId as c.empId for c in subEmpIds',min=0,placeholder="substitute Employee ID",required)
+                                            option(value='',selected) -- substitute Employee ID--
+                                        small(class="label label-danger",ng-show="substituteEmpForm.empId2.$invalid && substituteEmpForm.empId2.$dirty")
+                                .form-group.has-warning
+                                    label.control-label(for='') Description
+                                    textarea.form-control(rows=3,name='leaveSubDescription')
+                                div
+                                    button.btn.btn-info(style='margin-right: 10px', ng-click="",ng-disable="substituteEmpForm.$invalid")
+                                        | Assign
+                                    a.btn.btn-warning(ng-href='#hrLeave') Cancel

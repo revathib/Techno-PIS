@@ -1,0 +1,41 @@
+//
+   Created by Amit on 4/6/14.
+#wrapper
+    #shop
+        // PAGE TITLE
+        header#page-title
+            .container
+                h1 Manual
+                    strong Attendance
+                ul.breadcrumb
+                    li.active HR
+                    li.active Manual Attendance
+        section.container
+            .row
+                .col-lg-12
+                    form(ng-submit="submit()")
+                        table.table.table-bordered.table-hover.table-striped.tablesorter(ng-table)
+                            thead
+                                tr
+                                    th EmpId
+                                    th Name
+                                    th Department
+                                    th Designation
+                                    th Options
+                            tbody(ng-repeat='emp in Employees')
+                                tr
+                                    td {{emp.empId}}
+                                    td {{emp.name}}
+                                    td {{emp.department}}
+                                    td {{emp.designation}}
+                                    td(ng-if='emp.status!=="Leave"')
+                                        input(type='radio',name='Attandance',ng-model='$parent.{{emp.EmpId}}',value='{{emp.EmpId}}-Present',ng-value='{{emp.EmpId}}-Present')
+                                        | &nbsp;Present&nbsp;&nbsp;&nbsp;
+                                        input(type='radio',name='Attandance',ng-model='$parent.{{emp.EmpId}}',value='{{emp.EmpId}}-Absent',ng-value='{{emp.EmpId}}-Absent')
+                                        | &nbsp;Absent
+                                    td(ng-if='emp.status=="Leave"')
+                                        | On Leave
+                            tfoot
+                                tr
+                                    td(colspan="5",align="center")
+                                        button.btn.btn-success(type='submit') Submit

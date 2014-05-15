@@ -1,0 +1,48 @@
+// Created by Revathi on 7/4/14.
+
+#wrapper
+    #shop
+        // PAGE TITLE
+        header#page-title
+            .container
+                h1 Add
+                    strong Holidays
+                ul.breadcrumb
+                    li.active Admin
+                    li.active Manage Holidays
+                    li.active Add Holidays
+        section.container
+            .row
+                .col-lg-12
+                    .panel.panel-info
+                        .panel-body
+                            form#holidayForm(ng-submit='createHolidays()',name='addHolidayListForm',class='form-horizonal',role='form',novalidate)
+                                .form-group.has-warning
+                                    label.control-label(for='holiday-name')
+                                        | Name
+                                        span(style='color:red') *
+                                    div(ng-class="{ 'has-error' : addHolidayListForm.holidayName.$invalid }")
+                                        //class="label label-danger",
+                                        input.form-control(type='text',name='holidayName',ng-model='holiday.name',placeholder='Name',required,autofocus)
+                                        small(ng-show="addHolidayListForm.holidayName.$invalid && addHolidayListForm.holidayName.$dirty") Holiday Name Required
+                                .form-group.has-warning
+                                    //label.control-label
+                                    //	| Date
+                                    //	span(style='color:red') *
+                                    //	//#dpYears.input-append.date.form-control(data-date='12-02-2012', data-date-format='dd-mm-yyyy', data-date-viewmode='years')
+                                    //	input#dob.form-control.input-append.date( value='01-02-2011', readonly='readonly', name='dob', type='text', required)
+                                    label.control-label(for='holiday-date')
+                                        | Date
+                                        span(style='color:red') *
+                                    div(ng-class="{ 'has-error' : addHolidayListForm.holidayDate.$invalid }")
+                                        input#datepicker.form-control(type='date',name='holidayDate',ng-model='holiday.date',placeholder='Date',required,autofocus)
+                                        small(class="label label-danger",ng-show="addHolidayListForm.holidayDate.$invalid && addHolidayListForm.holidayDate.$dirty") Holiday Date Required
+                                .form-group.inline
+                                    input(type='checkbox',name=holidayOptional,ng-model='holiday.optional',required)
+                                    | &nbsp;
+                                    | Optional
+                                    small(class="label label-danger",ng-show="addHolidayListForm.holidayOptional.$invalid && addHolidayListForm.holidayOptional.$dirty") Required
+                                div
+                                    button.btn.btn-info(ng-click="createNew()", style="margin-right: 10px")
+                                        | Add
+                                    input.btn.btn-warning(type='reset',value='Reset')

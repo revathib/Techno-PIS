@@ -1,0 +1,143 @@
+//   Created by Amit on 1/4/14.
+header#topNav()
+    .container(style="margin-top: 23px;")
+        // Mobile Menu Button
+        button.btn(data-toggle='collapse', data-target='.nav-main-collapse', style='margin-top: 13px;')
+            i.fa.fa-bars
+        // Logo text or image
+        a.logo(style='line-height: 50px; margin-top: 0px;')
+            | Personal Information System
+            //img(src='/images/logo.jpg', alt='Payroll Management System')
+        // Top Nav
+        .navbar-collapse.nav-main-collapse.pull-right.collapse.topFix(style='margin-top: 13px; height: auto;')
+            nav.nav-main.mega-menu
+                ul#topMain.nav.nav-pills.nav-main.scroll-menu
+                    li.dropdown(ng-show='user.hr')
+                        a.dropdown-toggle
+                            | HR
+                            i.fa.fa-angle-down
+                        ul.dropdown-menu
+                            li.dropdown-submenu(ng-show='user.hrEmployeeAdd || user.hrEmployeeEdit || user.hrEmployeeDelete')
+                                a
+                                    | Employee
+                                ul.dropdown-menu.pull-left
+                                    li(ng-show='user.hrEmployeeAdd')
+                                        a(href='#/addEmployee') Add
+                                    li.divider(ng-show='user.hrEmployeeAdd && (user.hrEmployeeEdit || user.hrEmployeeDelete)')
+                                    li(ng-show='user.hrEmployeeEdit || user.hrEmployeeDelete')
+                                        a(href='#/manageEmployeeList') Manage
+                            li.divider(ng-show='user.hrEmployeeAdd || user.hrEmployeeEdit || user.hrEmployeeDelete')
+                            li
+                                a(href='#/hrManualAttendance') Manual Attendance
+                            li.divider
+                            li
+                                a(href='#/hrLeave') Leave Management
+                            li.divider
+                            li
+                                a(href='#/hrLoan') Loan Management
+                            li.divider
+                            li
+                                a(href='#/hrOvertime') Overtime Management
+                            li.divider
+                            li
+                                a(href='#/hrReimbursement') Reimbursement Management
+                            li.divider
+                            li
+                                a(href='#/hrAssignShift') Shift Management
+                    li.dropdown(ng-show='user.admin')
+                        a.dropdown-toggle
+                            | Admin
+                            i.fa.fa-angle-down
+                        ul.dropdown-menu
+                            li.dropdown-submenu(ng-show='user.adminDepartmentAdd || user.adminDepartmentEdit || user.adminDepartmentDelete')
+                                a
+                                    | Department
+                                ul.dropdown-menu.pull-left
+                                    li(ng-show='user.adminDepartmentAdd')
+                                        a(href='#/adminAddDepartments') Add
+                                    li.divider(ng-show='user.adminDepartmentAdd && (user.adminDepartmentEdit || user.adminDepartmentDelete)')
+                                    li(ng-show='user.adminDepartmentEdit || user.adminDepartmentDelete')
+                                        a(href='#/adminDepartments') Manage
+                            li.divider(ng-show='user.adminDepartmentAdd || user.adminDepartmentEdit || user.adminDepartmentDelete')
+                            li.dropdown-submenu(ng-show='user.adminDesignationAdd || user.adminDesignationEdit || user.adminDesignationDelete')
+                                a
+                                    | Designation
+                                ul.dropdown-menu.pull-left
+                                    li(ng-show='user.adminDesignationAdd')
+                                        a(href='#/adminAddDesignation') Add
+                                    li.divider(ng-show='user.adminDesignationAdd && (user.adminDesignationEdit || user.adminDesignationDelete)')
+                                    li(ng-show='user.adminDesignationEdit || user.adminDesignationDelete')
+                                        a(href='#/adminDesignations') Manage
+                            li.divider(ng-show='user.adminDesignationAdd || user.adminDesignationEdit || user.adminDesignationDelete')
+                            li.dropdown-submenu(ng-show='user.adminHolidayAdd || user.adminHolidayEdit || user.adminHolidayDelete')
+                                a
+                                    | Holiday
+                                ul.dropdown-menu.pull-left
+                                    li(ng-show='user.adminHolidayAdd')
+                                        a(href='#/adminAddHoliday') Add
+                                    li.divider(ng-show='user.adminHolidayAdd && (user.adminHolidayEdit || user.adminHolidayDelete)')
+                                    li(ng-show='user.adminHolidayEdit || user.adminHolidayDelete')
+                                        a(href='') Manage
+                            li.divider(ng-show='user.adminHolidayAdd || user.adminHolidayEdit || user.adminHolidayDelete')
+                            li.dropdown-submenu(ng-show='user.adminLeaveAdd || user.adminLeaveEdit || user.adminLeaveDelete')
+                                a
+                                    | Leave
+                                ul.dropdown-menu.pull-left
+                                    li(ng-show='user.adminLeaveAdd')
+                                        a(href='#/adminAddLeave') Add
+                                    li.divider(ng-show='user.adminLeaveAdd && (user.adminLeaveEdit || user.adminLeaveDelete)')
+                                    li(ng-show='user.adminLeaveEdit || user.adminLeaveDelete')
+                                        a(href='') Manage
+                            li.divider(ng-show='user.adminLeaveAdd || user.adminLeaveEdit || user.adminLeaveDelete')
+                            li.dropdown-submenu(ng-show='user.adminLoanAdd || user.adminLoanEdit || user.adminLoanDelete')
+                                a
+                                    | Loan
+                                ul.dropdown-menu.pull-left
+                                    li(ng-show='user.adminLoanAdd')
+                                        a(href='#/adminAddLoan') Add
+                                    li.divider(ng-show='user.adminLoanAdd && (user.adminLoanEdit || user.adminLoanDelete)')
+                                    li(ng-show='user.adminLoanEdit || user.adminLoanDelete')
+                                        a(href='#/') Manage
+                            li.divider(ng-show='user.adminLoanAdd || user.adminLoanEdit || user.adminLoanDelete')
+                            li.dropdown-submenu(ng-show='user.adminShiftAdd || user.adminShiftEdit || user.adminShiftDelete')
+                                a
+                                    | Shift
+                                ul.dropdown-menu.pull-left
+                                    li(ng-show='user.adminShiftAdd')
+                                        a(href='#/adminAddShift') Add
+                                    li.divider(ng-show='user.adminShiftAdd && (user.adminShiftEdit || user.adminShiftDelete)')
+                                    li(ng-show='user.adminShiftAdd || user.adminShiftEdit || user.adminShiftDelete')
+                                        a(href='') Manage
+                    li.dropdown
+                        a.dropdown-toggle
+                            | Employee
+                            i.fa.fa-angle-down
+                        ul.dropdown-menu
+                            li
+                                a(href='#/employeeProfile') Profile
+                            li.divider
+                            li
+                                a(href='#/employeeAttendance') Attendance
+                            li.divider
+                            li
+                                a(href='#/leaveApply') Leave
+                            li.divider
+                            li
+                                a(href='#/loanApply') Loan
+                            li.divider
+                            li
+                                a(href='#/overtimeApply') Overtime
+                            li.divider
+                            li
+                                a(href='#/reimbursementApply') Reimbursement
+                    li.dropdown
+                        a.dropdown-toggle(href='#/dashboard')
+                            | {{user.username}}
+                            i.fa.fa-angle-down
+                        ul.dropdown-menu
+                            li
+                                a(href='#/changePassword') Change Password
+                            li.divider
+                            li
+                                a(href='#/logout') Logout
+span#header_shadow

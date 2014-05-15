@@ -1,0 +1,46 @@
+//
+   Created by Amit on 5/4/14.
+#wrapper
+    #shop
+        // PAGE TITLE
+        header#page-title
+            .container
+                h1 Sign
+                    strong In
+                //ul.breadcrumb
+                    li.active Sign In
+        section.container
+            .row
+                .col-md-3
+                .col-md-6
+                    form.white-row(ng-submit="submit()")
+                        .alert.alert-danger(ng-show="error")
+                            i.fa.fa-frown-o
+                            | Wrong&nbsp;
+                            strong Employee ID
+                            | &nbsp;and&nbsp;
+                            strong Password
+                            | &nbsp;!
+                        .alert.alert-danger(ng-show="passwordError")
+                            i.fa.fa-frown-o
+                            | Wrong&nbsp;
+                            strong Password
+                            | &nbsp;!
+                        .row
+                            .form-group(ng-class="{'has-error':(error),'has-success':(passwordError)}")
+                                .col-md-12
+                                    label Employee ID
+                                    input#username.form-control(ng-model='user.username', name='username', type='text', value='', placeholder='Employee ID', autofocus, required)
+                        .row
+                            .form-group(ng-class="{'has-error':(passwordError),'has-error':(error)}")
+                                .col-md-12
+                                    label Password
+                                    input#password.form-control(ng-model='user.password', name='password', type='password', value='', placeholder='Password', required)
+                        .row
+                            .col-md-6
+                                span.remember-box.checkbox
+                                    label(for='rememberme')
+                                        input#rememberme(type='checkbox', name='rememberme', ng-model='user.rememberme')
+                                        | Remember Me
+                            .col-md-6
+                                input.btn.btn-primary.pull-right(type='submit', value='Sign In', data-loading-text='Loading...')

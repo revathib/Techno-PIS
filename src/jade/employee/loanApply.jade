@@ -1,0 +1,65 @@
+//
+   Created by sushma on 4/6/14.
+#wrapper
+    #shop
+        // PAGE TITLE
+        header#page-title
+            .container
+                h1 Employee
+                    strong Loan
+                ul.breadcrumb
+                    li.active Employee
+                    li.active Loan Apply
+        section.container
+            form(ng-submit="submit()")
+                .col-lg-12
+                    .panel.panel-info.table-bordered
+                        .panel-body
+                            .col-lg-12
+                                .alert.alert-success(ng-show="loan")
+                                    i.fa.fa-check-circle-o
+                                    | Loan Application Submitted Successfully
+                                .col-lg-4
+                                    .form-group.has-warning
+                                        label.control-label(for='loanType') Loan Type
+                                        select#loanType.form-control(name='loanType', ng-model='application.loanType', ng-options='loan.loanType as loan.loanType for loan in loanType', required, autofocus, ng-change='changeLoanType()')
+                                            option(value='',selected) --select--
+                                .col-lg-4
+                                    .form-group.has-warning
+                                        label.control-label(for='loanAmount') Loan Amount
+                                        input#loanAmount.form-control(type='number', name='loanAmount', ng-model="application.loanAmount", min=0, required, ng-change='calculateEMI()')
+                                .col-lg-4
+                                    .form-group.has-warning
+                                        label.control-label(for='duration') Duration (No.of Installments)
+                                        input#duration.form-control(type='number', name='duration', min='1', ng-model="application.duration", required, ng-change='calculateEMI()')
+                            .col-lg-12
+                                .col-lg-2
+                                .col-lg-4
+                                    .form-group.has-warning
+                                        label.control-label(for='rateOfInterest') Rate Of Interest
+                                        input#rateOfInterest.form-control(type='text', name='rateOfInterest', ng-model="application.rateOfInterest", value='{{application.rateOfInterest}}', required, readonly)
+                                .col-lg-4
+                                    .form-group.has-warning
+                                        label.control-label(for='EMI') EMI
+                                        input#EMI.form-control(type='text', name='EMI', ng-model="application.EMI", value='{{application.EMI}}', required, readonly)
+                            .col-lg-12(align='center')
+                                .form-group.has-success
+                                    button.btn.btn-success(type='submit') Apply
+            .col-lg-12
+                .panel.panel-info.table-bordered
+                    .panel-body
+                        table#dataTableLoanApply.table.table-bordered.table-hover.table-striped(ng-table='dataTableLoanApply', show-filter='true')
+                            tr(ng-repeat='app in $data')
+                                td(data-title='"Application Date"', sortable='"applicationDate"', filter='{ "applicationDate": "text" }')
+                                    | {{app.applicationDate}}
+                                td(data-title='"Loan Type"', sortable='"loanType"', filter='{ "loanType": "text" }')
+                                    | {{app.loanType}}
+                                td(data-title='"Amount"', sortable='"amount"', filter='{ "amount": "text" }')
+                                    | {{app.amount}}
+                                td(data-title='"Rate Of Interest"', sortable='"rateOfInterest"', filter='{ "rateOfInterest": "text" }')
+                                    | {{app.rateOfInterest}}
+                                td(data-title='"Duration"', sortable='"duration"', filter='{ "duration": "text" }')
+                                    | {{app.duration}}
+                                td(data-title='"Status"', style='vertical-align: -webkit-baseline-middle;text-overflow: ellipsis;white-space: nowrap;')
+                                    | {{app.status}}
+                                    a.btn.btn-small(ng-show="(app.status=='applied')") Cancel

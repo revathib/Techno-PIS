@@ -1,0 +1,48 @@
+//   Created by Revathi on 26/4/14.
+#wrapper
+    #shop
+        // PAGE TITLE
+        header#page-title
+            .container
+                h1 Employee
+                    strong Supporting Documents
+                ul.breadcrumb
+                    li.active Employee
+                    li.active Employee Leave
+        section.container
+            .row
+                .col-lg-12
+                    .panel.panel-info.table-bordered
+                        .panel-body
+                            .col-lg-12
+                                .alert.alert-success(ng-show="leave")
+                                    i.fa.fa-check-circle-o
+                                    | Leave Docs Submitted Successfully
+                            form#departmentForm(name="supportingDocForm",class="form-horizontal",role="form",ng-submit='createNewDepartment()',novalidate)
+                                .form-group.has-warning
+                                    label.control-label(for='EmpId') Employee ID
+                                        span(style='color:red') *
+                                    div(ng-class="{ 'has-error' : supportingDocForm.empId.$invalid }")
+                                        input.form-control(type='number',name='empId',ng-model="doc.empId",min=0,placeholder="Employee ID",autofocus,required)
+                                        small(class='label label-danger',ng-show='supportingDocForm.empId.$invalid && supportingDocForm.empId.$dirty ')
+                                .form-group.has-warning
+                                    label.control-label(for='leaveId') Leave ID
+                                        span(style='color:red') *
+                                    div(ng-class="{ 'has-error' : supportingDocForm.leaveId.$invalid }")
+                                        input.form-control(type='number',name='leaveId',ng-model="doc.leaveId",min=0,placeholder="Leave ID",required)
+                                        small(class='label label-danger',ng-show='supportingDocForm.leaveId.$invalid && supportingDocForm.leaveId.$dirty')
+                                .form-group.has-warning
+                                    label.control-label(for='leaveCode') Leave Code
+                                        span(style='color:red') *
+                                    div(ng-class="{ 'has-error' : supportingDocForm.leaveCode.$invalid }")
+                                        input.form-control(type='number',name='leaveCode',ng-model="doc.leaveCode",min=0,placeholder="Leave Code",required)
+                                        small(class=" label label-danger ",ng-show="supportingDocForm.leaveCode.$invalid && supportingDocForm.leaveCode.$dirty")
+                                .form-group.has-warning
+                                    label.control-label(for='leaveDocument') Document
+                                        span(style='color:red') *
+                                    div(ng-class="{ 'has-error' : supportingDocForm.leaveDocument.$invalid }")
+                                        input.form-control(type='file',name='leaveDocument',ng-model="doc.leaveDocument",min=0,required)
+                                div
+                                    button.btn.btn-info(style='margin-right: 10px', ng-click="")
+                                        | Attach
+                                    a.btn.btn-warning(ng-href='#leaveApply') Cancel

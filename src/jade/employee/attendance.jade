@@ -1,0 +1,62 @@
+#wrapper
+    #shop
+        // PAGE TITLE
+        header#page-title
+            .container
+                h1 Employee
+                    strong Attendance
+                ul.breadcrumb
+                    li.active Employee
+                    li.active Employee Attendance
+        section.container
+            .col-lg-12
+                .responsive-calendar
+                    .controls
+                        a.pull-left(data-go='prev')
+                            .btn.btn-primary Prev
+                        h4
+                            span(data-head-month='')
+                            | &nbsp;-&nbsp;
+                            span(data-head-year='')
+                        a.pull-right(data-go='next')
+                            .btn.btn-primary Next
+                    .col-lg-12
+                        .day-headers
+                            .day.header Sun
+                            .day.header Mon
+                            .day.header Tue
+                            .day.header Wed
+                            .day.header Thu
+                            .day.header Fri
+                            .day.header Sat
+                        .days(data-group='days')
+script.
+    $(document).ready(function () {
+        $(".responsive-calendar").responsiveCalendar({
+          time: (new Date()).getFullYear()+'-'+("0" + ((new Date()).getMonth() + 1)).slice(-2),
+          events: {
+            "2014-04-03": { "badgeClass": "Present"},
+            "2014-04-04": { "badgeClass": "on-leave"},
+            "2014-04-05": { "badgeClass": "on-leave"},
+            "2014-04-06": { "badgeClass": "on-leave"},
+            "2014-04-07": { "badgeClass": "Present"},
+            "2014-04-10": { "badgeClass": "Present"},
+            "2014-04-11": { "badgeClass": "Present"},
+            "2014-04-12": { "badgeClass": "Present"},
+            "2014-04-13": { "badgeClass": "Present"},
+            "2014-04-14": { "badgeClass": "Present"},
+            "2014-04-17": { "badgeClass": "Present"},
+            "2014-04-18": { "badgeClass": "Absent"},
+            "2014-04-19": { "badgeClass": "Absent"},
+            "2014-04-20": { "badgeClass": "Present"},
+            "2014-04-21": { "badgeClass": "Present"},
+            "2014-04-24": { "badgeClass": "Present"},
+            "2014-04-25": { "badgeClass": "on-leave"},
+            "2014-04-26": { "badgeClass": "Present"},
+            "2014-04-27": { "badgeClass": "Absent"},
+            "2013-07-01": { "badgeClass": "Absent"},
+            "2013-07-02": { "badgeClass": "Absent"},
+            "2014-04-28": { "badgeClass": "Present"}
+          }
+        });
+      });

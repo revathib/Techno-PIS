@@ -1,0 +1,58 @@
+//
+   Created by sushma on 4/6/14.
+#wrapper
+    #shop
+        // PAGE TITLE
+        header#page-title
+            .container
+                h1 Employee
+                    strong Absent
+                ul.breadcrumb
+                    li.active Employee
+                    li.active Absent Apply
+        section.container
+            form(ng-submit="submit()")
+                .col-lg-12
+                    .panel.panel-info.table-bordered
+                        .panel-body
+                            .col-lg-12
+                                .alert.alert-success(ng-show="absent")
+                                    i.fa.fa-check-circle-o
+                                    | Absent Application Submitted Successfully
+                            .col-lg-4
+                                .form-group.has-warning
+                                    label.control-label(for='fromDate') From Date
+                                    input#fromDate.form-control(type='date', name='fromDate', ng-model="application.fromDate", required, autofocus)
+                            .col-lg-4
+                                .form-group.has-warning
+                                    label.control-label(for='toDate') To Date
+                                    input#toDate.form-control(type='date', name='toDate', ng-model="application.toDate", required)
+                            .col-lg-4
+                                .form-group.has-warning
+                                    label.control-label(for='leaveType') Absent Type
+                                    select#leaveType.form-control(name='leaveType', ng-model='application.leaveType', ng-options='leave.leaveType as leave.leaveType for leave in leaveType', required)
+                                        option(value='',selected) --select--
+                            .col-lg-12
+                                .form-group.has-warning
+                                    label.control-label(for='reason') Reason
+                                    textarea#reason.form-control(name='reason', ng-model="application.reason", required)
+                            .col-lg-4
+                            .col-lg-4(align='center')
+                                .form-group.has-success
+                                    button.btn.btn-success(type='submit') Apply
+            .col-lg-12
+                .panel.panel-info.table-bordered
+                    .panel-body
+                        table#dataTableAbsentApply.table.table-bordered.table-hover.table-striped(ng-table='dataTableAbsentApply', show-filter='true')
+                            tr(ng-repeat='app in $data')
+                                td(data-title='"Application Date"', sortable='"applicationDate"', filter='{ "applicationDate": "text" }')
+                                    | {{app.applicationDate}}
+                                td(data-title='"From Date"', sortable='"from"', filter='{ "from": "text" }')
+                                    | {{app.from}}
+                                td(data-title='"To Date"', sortable='"to"', filter='{ "to": "text" }')
+                                    | {{app.to}}
+                                td(data-title='"Leave Type"', sortable='"absentType"', filter='{ "absentType": "text" }')
+                                    | {{app.absentType}}
+                                td(data-title='"Status"', style='vertical-align: -webkit-baseline-middle;text-overflow: ellipsis;white-space: nowrap;')
+                                    | {{app.status}}
+                                    a.btn.btn-small(ng-show="(app.status=='applied')") Cancel

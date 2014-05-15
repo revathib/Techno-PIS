@@ -1,0 +1,29 @@
+#wrapper
+    #shop
+        // PAGE TITLE
+        header#page-title
+            .container
+                h1 Overtime
+                    strong Management
+                ul.breadcrumb
+                    li.active HR
+                    li.active Overtime Management
+        section.container
+            .row
+                .col-lg-12
+                    table#dataTableHrManageOvertime.table.table-bordered.table-hover.table-striped(ng-table='dataTableHrManageOvertime', show-filter='true')
+                        tr(ng-repeat='app in $data')
+                            td(data-title='"EmpId"', sortable='"empId"', filter='{ "empId": "text" }')
+                                | {{app.empId}}
+                            td(data-title='"Name"', sortable='"name"', filter='{ "name": "text" }')
+                                | {{app.name}}
+                            td(data-title='"Date"', sortable='"date"', filter='{ "date": "text" }')
+                                | {{app.date}}
+                            td(data-title='"From"', sortable='"from"', filter='{ "from": "text" }')
+                                | {{app.from}}
+                            td(data-title='"To"', sortable='"to"', filter='{ "to": "text" }')
+                                | {{app.to}}
+                            td(data-title='"Options"')
+                                a(href='#/hrOvertime/{{app.applicationID}}') Show Details
+
+

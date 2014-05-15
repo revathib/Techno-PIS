@@ -1,0 +1,73 @@
+//   Created by Revathi on 3/5/14.
+
+#wrapper
+	#shop
+		// PAGE TITLE
+		header#page-title
+			.container
+				h1 Admin
+					strong Level
+				ul.breadcrumb
+					li.active Admin
+					li.active Level Management
+					li.active Edit Level
+
+		section.container
+			form(
+				ng-submit="submit()",
+				name='editLevelForm',
+				type='form',
+				class='form form-horizontal',
+				novalidate
+			)
+				div.col-lg-12
+					.panel.panel-info.table-bordered
+						.panel-heading
+							| Level Id : {{LevelType.levelId}}
+						.panel-body
+							.col-lg-12
+								.form-group.has-warning
+									label.control-label(for='levelCode') Level Code
+									input.form-control(
+										type='text',
+										name='levelCode',
+										ng-model="LevelType.levelCode",
+										value='{{LevelType.levelCode}}',
+										required,
+										autofocus
+									)
+									small(
+										class="label label-danger",
+										ng-show="editLevelForm.levelCode.$invalid && editLevelForm.levelCode.$dirty"
+									) Level Code required
+							.col-lg-12
+								.form-group.has-warning
+									label.control-label(for='levelName') Level
+									input#leaveName.form-control(
+										type='text',
+										name='level',
+										ng-model="LevelType.level",
+										value='{{LevelType.level}}',
+										required
+									)
+									small(
+										class="label label-danger",
+										ng-show="editLevelForm.level.$invalid && editLevelForm.level.$dirty"
+									) Level Required
+
+							.col-lg-12
+								.form-group.has-warning
+									label.control-label(for='description') Description
+									input.form-control(
+										type='text',
+										name='level',
+										ng-model="LevelType.description",
+										value='{{LevelType.description}}',
+										required
+									)
+							.col-lg-12(align='center')
+								.form-group.has-success
+									button.btn.btn-success(ng-click="update(LevelType.levelId)") Update
+									|&nbsp;|&nbsp;
+									button.btn.btn-danger(ng-click="cancelEdit()", style="margin-right: 10px") Cancel
+

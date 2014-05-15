@@ -1,0 +1,30 @@
+<div id="wrapper"><div id="shop"><!-- PAGE TITLE--><header id="page-title"><div class="container"><h1>Add<strong>Employee</strong></h1><ul class="breadcrumb"><li class="active">HR</li><li class="active">Add Employee</li></ul></div></header><section class="container"><div class="col-lg-12 fuelux"><form id="MyWizard" ng-submit="submit()" class="wizard"><ul class="steps"><li data-target="#step1" class="active"><span class="badge badge-info">1</span>Personal Details<span class="chevron"></span></li><li data-target="#step2"><span class="badge">2</span>Education Details<span class="chevron"></span></li><li data-target="#step3"><span class="badge">3</span>Step 3<span class="chevron"></span></li><li data-target="#step4"><span class="badge">4</span>Step 4<span class="chevron"></span></li></ul><div style="margin-top: 50px;" class="step-content"><div id="step1" class="step-pane active"><div class="col-lg-12"><div class="panel panel-info table-bordered"><div class="panel-heading"><input type="radio" name="PhysicallyChallenged"/>&nbsp;
+Fresher
+&nbsp;<input type="radio" name="PhysicallyChallenged"/>&nbsp;
+Experienced</div><div id="itemRows" class="panel-body"><div class="col-lg-12 panel"><div class="col-lg-3"><div class="form-group has-warning"><label for="Name" class="control-label">Employer Name</label><input id="toDate" type="text" required="required" class="form-control"/></div></div><div class="col-lg-3"><div class="form-group has-warning"><label for="Name" class="control-label">From Date</label><input id="toDate" type="text" required="required" class="form-control"/></div></div><div class="col-lg-3"><div class="form-group has-warning"><label for="Name" class="control-label">To Date</label><input id="toDate" type="text" required="required" class="form-control"/></div></div><div class="col-lg-3"><div class="form-group has-warning"><label for="Name" class="control-label">Designation</label><input id="toDate" type="text" required="required" class="form-control"/></div></div><div class="col-lg-12"><div class="form-group has-warning"><label for="Name" class="control-label">Job Profile</label><input id="toDate" type="text" required="required" class="form-control"/></div></div><div class="col-lg-2"><input onclick="addRow(this.form);" type="button" value="Add row" class="form-control"/></div></div></div></div></div></div><div id="step2" class="step-pane">This is step 2</div><div id="step3" class="step-pane">This is step 3</div><div id="step4" class="step-pane">This is step 4</div></div><div class="actions"><button style="float:left;margin-bottom: 10px;" type="button" class="btn btn-warning btn-prev"><i class="icon-arrow-left"></i>Prev</button><button style="float:right;margin-bottom: 10px;" type="button" data-last="Complete" data-type="submit" class="btn btn-warning btn-next">Next<i class="icon-arrow-right"></i></button><input id="submitform" type="submit" style="visibility:hidden" value="Submit" data-loading-text="Loading..."/></div></form></div></section></div></div><script>$('#MyWizard').on('change', function(e, data) {
+    if(data.step===1  && data.direction==='next') {
+        console.log($('#FromDate').val());
+        if($('#FromDate').val()==null||$('#FromDate').val()==''){
+        $('#FromDate').focus();
+        
+        return e.preventDefault();
+        }
+    }
+});
+$('#MyWizard').on('finished', function(e, data) {
+    console.log('finished');
+    $('#submitform').focus().click();
+});
+var rowNum = 0;
+function addRow(frm) {
+    console.log(frm)
+    rowNum ++;
+    var row = '<div class="col-lg-12 panel"><div class="col-lg-3"><div class="form-group has-warning"><label for="Name" class="control-label">Employer Name</label><input id="toDate" type="text" required="required" class="form-control"></div></div><div class="col-lg-3"><div class="form-group has-warning"><label for="Name" class="control-label">From Date</label><input id="toDate" type="text" required="required" class="form-control"></div></div><div class="col-lg-3"><div class="form-group has-warning"><label for="Name" class="control-label">To Date</label><input id="toDate" type="text" required="required" class="form-control"></div></div><div class="col-lg-3"><div class="form-group has-warning"><label for="Name" class="control-label">Designation</label><input id="toDate" type="text" required="required" class="form-control"></div></div><div class="col-lg-12"><div class="form-group has-warning"><label for="Name" class="control-label">Job Profile</label><input id="toDate" type="text" required="required" class="form-control"></div></div><div class="col-lg-2"><input onclick="removeRow('+rowNum+');" type="button" value="Remove" class="form-control"></div></div>';
+    // var row = '<p id="rowNum'+rowNum+'">Item quantity: <input type="text" name="qty[]" size="4" value=""> Item name: <input type="text" name="name[]" value=""> <input type="button" value="Remove" onclick="removeRow('+rowNum+');"></p><p id="rowNum'+rowNum+'">Item quantity: <input type="text" name="qty[]" size="4" value=""> Item name: <input type="text" name="name[]" value="">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      <input type="button" value="Remove" onclick="removeRow('+rowNum+');"></p>';
+    jQuery('#itemRows').append(row);
+    // frm.add_qty.value = '';
+    // frm.add_name.value = '';
+}
+function removeRow(rnum) {
+    jQuery('#rowNum'+rnum).remove();
+}</script>

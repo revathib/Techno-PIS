@@ -1,0 +1,451 @@
+#wrapper
+    #shop
+        // PAGE TITLE
+        header#page-title
+            .container
+                h1 Employee
+                    strong Profile
+                ul.breadcrumb
+                    li.active Employee
+                    li.active Employee Profile
+        section.container
+            .col-lg-12
+                ul(class="nav nav-tabs", style="margin-bottom: 15px;")
+                    li.active
+                        a(href="#step1", data-toggle="tab") Personal Details
+                    li
+                        a(href="#step2", data-toggle="tab") Address
+                    li
+                        a(href="#step3", data-toggle="tab") Education Details
+                    li
+                        a(href="#step4", data-toggle="tab") Experience Details
+                    li
+                        a(href="#step5", data-toggle="tab") Health Details
+                    li
+                        a(href="#step6", data-toggle="tab") Payroll Details
+                div(class="tab-content")
+                    div#step1(class="tab-pane fade active in")
+                        div.col-lg-12
+                            .panel.panel-info.table-bordered
+                                .panel-body
+                                    .col-lg-4
+                                        .form-group.has-warning
+                                            label.control-label(for='firstname') First Name
+                                            input#firstname.form-control(type='text',placeholder='First Name',required, autofocus)
+                                    .col-lg-4
+                                        .form-group.has-warning
+                                            label.control-label(for='middlename') Middle Name
+                                            input#middlename.form-control(type='text',placeholder='Middle Name',  required)
+                                    .col-lg-4
+                                        .form-group.has-warning
+                                            label.control-label(for='lastname') Last Name
+                                            input#lastname.form-control(type='text',placeholder='Last Name' , required)
+                                    .col-lg-6
+                                        .form-group.has-warning
+                                            label.control-label(for='fathername') Father Name
+                                            input#fathername.form-control(type='text',placeholder='Father Name' , required)
+                                    .col-lg-6
+                                        .form-group.has-warning
+                                            label.control-label(for='mothermaidenname') Mother Maiden Name
+                                            input#mothermaidenname.form-control(type='text',placeholder='Mother Maiden Name' , required)
+                                    .col-lg-3
+                                        .form-group.has-warning
+                                            label.control-label
+                                                | Date Of Birth
+                                            input#dateofbirth.form-control(type='text', name='dateofbirth', placeholder='Date Of Birth', required='', autofocus='')
+                                    .col-lg-3
+                                        .form-group.has-warning
+                                            label.control-label(for='gender') Gender
+                                            input(type='radio')
+                                            | &nbsp;
+                                            | Female
+                                            | &nbsp;
+                                            input(type='radio')
+                                            | &nbsp;
+                                            | Male
+                                    .col-lg-3
+                                        .form-group.has-warning
+                                            label.control-label Marital Status
+                                            select.form-control
+                                    .col-lg-3
+                                        .form-group.has-warning
+                                            label.control-label Nationality
+                                            input#dateofbirth.form-control(type='text', name='dateofbirth', placeholder='Nationality', required='', autofocus='')
+                                    .col-lg-4
+                                        .form-group.has-warning
+                                            label.control-label Category
+                                            select#dateofbirth.form-control( name='dateofbirth', placeholder='Category', required='', autofocus='')
+                                    .col-lg-4
+                                        .form-group.has-warning
+                                            label.control-label Caste
+                                            input#dateofbirth.form-control(type='text', name='dateofbirth', placeholder='Cast', required='', autofocus='')
+                                    .col-lg-4
+                                        .form-group.has-warning
+                                            label.control-label Religion
+                                            input#dateofbirth.form-control(type='text', name='dateofbirth', placeholder='Religion', required='', autofocus='')
+                    div#step2(class="tab-pane fade")
+                        div.col-lg-6
+                            .panel.panel-info.table-bordered
+                                .panel-heading
+                                        | Current Address
+                                .panel-body
+                                    .form#adduserform(role='form', action='')
+                                        .form-group.has-warning
+                                        label.control-label(for='houseno') House No
+                                        input#houseno.form-control(type='number',name='Name', required)
+                                    .form#adduserform(role='form', action='')
+                                        .form-group.has-warning
+                                        label.control-label(for='streetname') Street Name
+                                        input#streetname.form-control(type='text',name='Name', required)
+                                    .form#adduserform(role='form', action='')
+                                        .form-group.has-warning
+                                        label.control-label(for='locality') Locality
+                                        input#locality.form-control(type='text',name='Name', required)
+                                    .form#adduserform(role='form', action='')
+                                        .form-group.has-warning
+                                        label.control-label(for='city') City
+                                        input#city.form-control(type='text',name='Name', required)
+                                    .form#adduserform(role='form', action='')
+                                        .form-group.has-warning
+                                        label.control-label(for='state') State
+                                        input#state.form-control(type='text',name='Name', required)
+                                    .form#adduserform(role='form', action='')
+                                        .form-group.has-warning
+                                        label.control-label(for='country') Country
+                                        input#country.form-control(type='text',name='Name', required)
+                                    .form#adduserform(role='form', action='')
+                                        .form-group.has-warning
+                                        label.control-label(for='pincode') Pin Code
+                                        input#pincode.form-control(type='number',name='Name', required)
+                        div.col-lg-6
+                            .panel.panel-info.table-bordered
+                                .panel-heading
+                                        | Permanent Address
+                                        span(style='float:right')
+                                            input(type='checkbox')
+                                            | Same as Current Address
+                                .panel-body
+                                    .form#adduserform(role='form', action='')
+                                        .form-group.has-warning
+                                        label.control-label(for='houseno') House No
+                                        input#houseno.form-control(type='number',name='Name', required)
+                                    .form#adduserform(role='form', action='')
+                                        .form-group.has-warning
+                                        label.control-label(for='streetname') Street Name
+                                        input#streetname.form-control(type='text',name='Name', required)
+                                    .form#adduserform(role='form', action='')
+                                        .form-group.has-warning
+                                        label.control-label(for='locality') Locality
+                                        input#locality.form-control(type='text',name='Name', required)
+                                    .form#adduserform(role='form', action='')
+                                        .form-group.has-warning
+                                        label.control-label(for='city') City
+                                        input#city.form-control(type='text',name='Name', required)
+                                    .form#adduserform(role='form', action='')
+                                        .form-group.has-warning
+                                        label.control-label(for='state') State
+                                        input#state.form-control(type='text',name='Name', required)
+                                    .form#adduserform(role='form', action='')
+                                        .form-group.has-warning
+                                        label.control-label(for='country') Country
+                                        input#country.form-control(type='text',name='Name', required)
+                                    .form#adduserform(role='form', action='')
+                                        .form-group.has-warning
+                                        label.control-label(for='pincode') Pin Code
+                                        input#pincode.form-control(type='number',name='Name', required)
+                        div.col-lg-12
+                            .panel.panel-info.table-bordered
+                                .panel-heading
+                                        | Contact Details
+                                .panel-body
+                                    .col-lg-6
+                                        .form#adduserform(role='form', action='')
+                                            .form-group.has-warning
+                                            label.control-label(for='houseno') Contact No. 1
+                                            input#houseno.form-control(type='number',name='Name', required)
+                                    .col-lg-6
+                                        .form#adduserform(role='form', action='')
+                                            .form-group.has-warning
+                                            label.control-label(for='streetname') Contact No. 2
+                                            input#streetname.form-control(type='text',name='Name', required)
+                                    .col-lg-6
+                                        .form#adduserform(role='form', action='')
+                                            .form-group.has-warning
+                                            label.control-label(for='locality') Email 1
+                                            input#locality.form-control(type='text',name='Name', required)
+                                    .col-lg-6
+                                        .form#adduserform(role='form', action='')
+                                            .form-group.has-warning
+                                            label.control-label(for='city') Email 2
+                                            input#city.form-control(type='text',name='Name', required)
+                        div.col-lg-12
+                            .panel.panel-info.table-bordered
+                                .panel-heading
+                                    | Other Details
+                                .panel-body
+                                    .col-lg-12
+                                        .col-lg-3
+                                            .form#adduserform(role='form', action='')
+                                                .form-group.has-warning
+                                                label.control-label(for='houseno') PAN No.
+                                                input#houseno.form-control(type='number',name='Name', required)
+                                        .col-lg-3
+                                            .form#adduserform(role='form', action='')
+                                                .form-group.has-warning
+                                                label.control-label(for='streetname') Upload
+                                                input#streetname.form-control(type='file',name='Name', required)
+                                    .col-lg-12
+                                        .col-lg-3
+                                            .form#adduserform(role='form', action='')
+                                                .form-group.has-warning
+                                                label.control-label(for='locality') Passport No.
+                                                input#locality.form-control(type='text',name='Name', required)
+                                        .col-lg-3
+                                            .form#adduserform(role='form', action='')
+                                                .form-group.has-warning
+                                                label.control-label(for='city') Valid From
+                                                input#city.form-control(type='text',name='Name', required)
+                                        .col-lg-3
+                                            .form#adduserform(role='form', action='')
+                                                .form-group.has-warning
+                                                label.control-label(for='locality') Valid To
+                                                input#locality.form-control(type='text',name='Name', required)
+                                        .col-lg-3
+                                            .form#adduserform(role='form', action='')
+                                                .form-group.has-warning
+                                                label.control-label(for='city') Upload
+                                                input#city.form-control(type='file',name='Name', required)
+                    div#step3(class="tab-pane fade")
+                        div.col-lg-12
+                            .panel.panel-info.table-bordered
+                                .panel-heading
+                                    | X
+                                .panel-body
+                                    .col-lg-4
+                                        .form-group.has-warning
+                                            label.control-label(for='FromDate') Percentage
+                                            input#FromDate.form-control(type='number', min=0, max=100, required)
+                                    .col-lg-4
+                                        .form-group.has-warning
+                                            label.control-label(for='toDate') Year
+                                            input#toDate.form-control(type='text',  required)
+                            .panel.panel-info.table-bordered
+                                .panel-heading
+                                    | XII
+                                .panel-body
+                                    .col-lg-4
+                                        .form-group.has-warning
+                                            label.control-label(for='FromDate') Percentage
+                                            input#FromDate.form-control(type='number', min=0, max=100, required)
+                                    .col-lg-4
+                                        .form-group.has-warning
+                                            label.control-label(for='toDate') Year
+                                            input#toDate.form-control(type='text',  required)
+                                    .col-lg-4
+                                        .form-group.has-warning
+                                            label.control-label(for='LeaveType') Specialization
+                                            input#LeaveType.form-control(type='text',  required)
+                            .panel.panel-info.table-bordered
+                                .panel-heading
+                                    | Graduation
+                                .panel-body
+                                    .col-lg-4
+                                        .form-group.has-warning
+                                            label.control-label(for='FromDate') Graduation
+                                            select.form-control
+                                                option --select--
+                                    .col-lg-4
+                                        .form-group.has-warning
+                                            label.control-label(for='FromDate') Percentage
+                                            input#FromDate.form-control(type='number', min=0, max=100, required)
+                                    .col-lg-4
+                                        .form-group.has-warning
+                                            label.control-label(for='toDate') Year
+                                            input#toDate.form-control(type='text',  required)
+                                    .col-lg-4
+                                        .form-group.has-warning
+                                            label.control-label(for='LeaveType') Specialization
+                                            input#LeaveType.form-control(type='text',  required)
+                                    .col-lg-8
+                                        .form-group.has-warning
+                                            label.control-label(for='Name') Institute/Unversity
+                                            input#toDate.form-control(type='text',  required)
+                            .panel.panel-info.table-bordered
+                                .panel-heading
+                                    | Post Graduation
+                                .panel-body
+                                    .col-lg-4
+                                        .form-group.has-warning
+                                            label.control-label(for='FromDate') Post Graduation
+                                            select.form-control
+                                                option --select--
+                                    .col-lg-4
+                                        .form-group.has-warning
+                                            label.control-label(for='FromDate') Percentage
+                                            input#FromDate.form-control(type='number', min=0, max=100, required)
+                                    .col-lg-4
+                                        .form-group.has-warning
+                                            label.control-label(for='toDate') Year
+                                            input#toDate.form-control(type='text',  required)
+                                    .col-lg-4
+                                        .form-group.has-warning
+                                            label.control-label(for='LeaveType') Specialization
+                                            input#LeaveType.form-control(type='text',  required)
+                                    .col-lg-8
+                                        .form-group.has-warning
+                                            label.control-label(for='Name') Institute/Unversity
+                                            input#toDate.form-control(type='text',  required)
+                            .panel.panel-info.table-bordered
+                                .panel-heading
+                                    | PhD/Master's
+                                .panel-body
+                                    .col-lg-4
+                                        .form-group.has-warning
+                                            label.control-label(for='FromDate') PhD/Master's
+                                            select.form-control
+                                                option --select--
+                                    .col-lg-4
+                                        .form-group.has-warning
+                                            label.control-label(for='FromDate') Percentage
+                                            input#FromDate.form-control(type='number', min=0, max=100, required)
+                                    .col-lg-4
+                                        .form-group.has-warning
+                                            label.control-label(for='toDate') Year
+                                            input#toDate.form-control(type='text',  required)
+                                    .col-lg-4
+                                        .form-group.has-warning
+                                            label.control-label(for='LeaveType') Specialization
+                                            input#LeaveType.form-control(type='text',  required)
+                                    .col-lg-8
+                                        .form-group.has-warning
+                                            label.control-label(for='Name') Institute/Unversity
+                                            input#toDate.form-control(type='text',  required)
+                    div#step4(class="tab-pane fade")
+                        div.col-lg-12
+                            .panel.panel-info.table-bordered
+                                .panel-heading
+                                    input(type='radio', name='PhysicallyChallenged')
+                                    | &nbsp;
+                                    | Fresher
+                                    | &nbsp;
+                                    input(type='radio', name='PhysicallyChallenged')
+                                    | &nbsp;
+                                    | Experienced
+                                .panel-body#itemRows
+                                    .col-lg-12.panel
+                                        .col-lg-3
+                                            .form-group.has-warning
+                                                label.control-label(for='Name') Employer Name
+                                                input#toDate.form-control(type='text',  required)
+                                        .col-lg-3
+                                            .form-group.has-warning
+                                                label.control-label(for='Name') From Date
+                                                input#toDate.form-control(type='text',  required)
+                                        .col-lg-3
+                                            .form-group.has-warning
+                                                label.control-label(for='Name') To Date
+                                                input#toDate.form-control(type='text',  required)
+                                        .col-lg-3
+                                            .form-group.has-warning
+                                                label.control-label(for='Name') Designation
+                                                input#toDate.form-control(type='text',  required)
+                                        .col-lg-12
+                                            .form-group.has-warning
+                                                label.control-label(for='Name') Job Profile
+                                                input#toDate.form-control(type='text',  required)
+                                        .col-lg-2
+                                            input.form-control(onclick="addRow(this.form);", type="button", value="Add row" )
+                    div#step5(class="tab-pane fade")
+                        div.col-lg-12
+                            .panel.panel-info.table-bordered
+                                .panel-body
+                                    .col-lg-6
+                                        .form-group.has-warning
+                                            label.control-label(for='Name') Blood Group
+                                            Select#toDate.form-control(required)
+                                    .col-lg-6
+                                        .form-group.has-warning
+                                            label.control-label(for='Name') Physically Challenged
+                                            input(type='radio', name='PhysicallyChallenged')
+                                            | &nbsp;
+                                            | Yes
+                                            | &nbsp;
+                                            input(type='radio', name='PhysicallyChallenged')
+                                            | &nbsp;
+                                            | No
+                                    .col-lg-12
+                                        label.control-label(for='Name') Remark
+                                        textarea.form-control(rows="4")
+                    div#step6(class="tab-pane fade")
+                        div.col-lg-12
+                            .panel.panel-info.table-bordered
+                                .panel-body
+                                    .col-lg-6
+                                        label.control-label(for='Name') Department
+                                        select#toDate.form-control(type='text',  required)
+                                    .col-lg-6
+                                        label.control-label(for='Name') Designation
+                                        select#toDate.form-control(type='text',  required)
+                                    .form-group.has-warning
+                                        label.control-label(for='Name') Basic Salary
+                                        input#toDate.form-control(type='text',  required)
+                                    .col-lg-6
+                                        .panel.panel-info.table-bordered
+                                            .panel-heading
+                                                | Allowances
+                                            .panel-body
+                                                .form-group.has-warning
+                                                    label.control-label(for='Name') HRA
+                                                    input#toDate.form-control(type='text',  required)
+                                                .form-group.has-warning
+                                                    label.control-label(for='Name') TA
+                                                    input#toDate.form-control(type='text',  required)
+                                                .form-group.has-warning
+                                                    label.control-label(for='Name') DA
+                                                    input#toDate.form-control(type='text',  required)
+                                                .form-group.has-warning
+                                                    label.control-label(for='Name') Medical Allowance
+                                                        input#toDate.form-control(type='text',  required)
+                                                .form-group.has-warning
+                                                    label.control-label(for='Name') Conveyance Allowance
+                                                    input#toDate.form-control(type='text',  required)
+                                                .form-group.has-warning
+                                                    label.control-label(for='Name') Education Allowance
+                                                    input#toDate.form-control(type='text',  required)
+                                                .form-group.has-warning
+                                                    label.control-label(for='Name') LTA
+                                                    input#toDate.form-control(type='text',  required)
+                                    .col-lg-6
+                                        .panel.panel-info.table-bordered
+                                            .panel-heading
+                                                | Deducations
+                                            .panel-body
+                                                .form-group.has-warning
+                                                    label.control-label(for='Name') Professional Tax
+                                                    input#toDate.form-control(type='text',  required)
+                                                .form-group.has-warning
+                                                    label.control-label(for='Name') Provident Fund
+                                                    input#toDate.form-control(type='text',  required)
+                                    .col-lg-12
+                                        .panel.panel-success.table-bordered
+                                            .panel-heading
+                                                | Monthly Salary Rs.{{Salary}}
+                                                span(style='float:right')
+                                                    | Total Salary Package Rs.{{Salary}}
+                                    .col-lg-12
+                                        .panel.panel-info.table-bordered
+                                            .panel-heading
+                                                | Bank Details
+                                            .panel-body
+                                                .col-lg-4
+                                                    .form-group.has-warning
+                                                        label.control-label(for='Name') Account No.
+                                                        input#toDate.form-control(type='text',  required)
+                                                .col-lg-4
+                                                    .form-group.has-warning
+                                                        label.control-label(for='Name') Bank Name
+                                                        input#toDate.form-control(type='text',  required)
+                                                .col-lg-4
+                                                    .form-group.has-warning
+                                                        label.control-label(for='Name') IFSC Code
+                                                        input#toDate.form-control(type='text',  required)

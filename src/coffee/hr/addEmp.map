@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "addEmp.js",
+  "sourceRoot": "",
+  "sources": [
+    "addEmp.coffee"
+  ],
+  "names": [],
+  "mappings": ";AAAA;AAAA,EAAA,GAAG,CAAC,UAAJ,CAAe,YAAf,EAA6B,SAAC,MAAD,EAAQ,KAAR,EAAc,OAAd,GAAA;AAC3B,IAAA,OAAO,CAAC,GAAR,CAAY,YAAZ,CAAA,CAAA;WACA,MAAM,CAAC,MAAP,GAAgB,SAAA,GAAA;aACd,OAAO,CAAC,GAAR,CAAY,QAAZ,EADc;IAAA,EAFW;EAAA,CAA7B,CAAA,CAAA;AAAA"
+}

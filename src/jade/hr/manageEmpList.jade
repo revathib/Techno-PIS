@@ -1,0 +1,37 @@
+#wrapper
+    #shop
+        // PAGE TITLE
+        header#page-title
+            .container
+                h1 Employee
+                    strong Management
+                ul.breadcrumb
+                    li.active HR
+                    li Manage Employee
+        section.container
+            .row
+                .col-lg-12
+                    .table-responsive
+                        table#dataTables-manageEmployee.table.table-bordered.table-hover.table-striped.tablesorter(ng-table)
+                            thead
+                                tr
+                                    th EmpId
+                                    th Name
+                                    th Department
+                                    th Designation
+                                    th Joining Date
+                                    th Options
+                            tbody(ng-repeat='user in users')
+                                tr
+                                    td {{user.empId}}
+                                    td {{user.name}}
+                                    td {{user.department}}
+                                    td {{user.designation}}
+                                    td {{user.joiningDate}}
+                                    td
+                                        a(href='#/manageEmployee/{{user.empId}}') Show Details
+
+script.
+    $(document).ready(function() {
+        $('#dataTables-manageEmployee').dataTable();
+    });

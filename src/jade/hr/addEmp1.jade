@@ -1,0 +1,105 @@
+#wrapper
+    #shop
+        // PAGE TITLE
+        header#page-title
+            .container
+                h1 Add
+                    strong Employee
+                ul.breadcrumb
+                    li.active HR
+                    li.active Add Employee
+        section.container
+            .col-lg-12.fuelux
+                form#MyWizard.wizard(ng-submit="submit()")
+                    ul.steps
+                        li.active(data-target='#step1')
+                            span.badge.badge-info 1
+                            | Personal Details
+                            span.chevron
+                        li(data-target='#step2')
+                            span.badge 2
+                            | Education Details
+                            span.chevron
+                        li(data-target='#step3')
+                            span.badge 3
+                            | Step 3
+                            span.chevron
+                        li(data-target='#step4')
+                            span.badge 4
+                            | Step 4
+                            span.chevron
+                    .step-content(style='margin-top: 50px;')
+                        #step1.step-pane.active
+                            div.col-lg-12
+                                .panel.panel-info.table-bordered
+                                    .panel-heading
+                                        input(type='radio', name='PhysicallyChallenged')
+                                        | &nbsp;
+                                        | Fresher
+                                        | &nbsp;
+                                        input(type='radio', name='PhysicallyChallenged')
+                                        | &nbsp;
+                                        | Experienced
+                                    .panel-body#itemRows
+                                        .col-lg-12.panel
+                                            .col-lg-3
+                                                .form-group.has-warning
+                                                    label.control-label(for='Name') Employer Name
+                                                    input#toDate.form-control(type='text',  required)
+                                            .col-lg-3
+                                                .form-group.has-warning
+                                                    label.control-label(for='Name') From Date
+                                                    input#toDate.form-control(type='text',  required)
+                                            .col-lg-3
+                                                .form-group.has-warning
+                                                    label.control-label(for='Name') To Date
+                                                    input#toDate.form-control(type='text',  required)
+                                            .col-lg-3
+                                                .form-group.has-warning
+                                                    label.control-label(for='Name') Designation
+                                                    input#toDate.form-control(type='text',  required)
+                                            .col-lg-12
+                                                .form-group.has-warning
+                                                    label.control-label(for='Name') Job Profile
+                                                    input#toDate.form-control(type='text',  required)
+                                            .col-lg-2
+                                                input.form-control(onclick="addRow(this.form);", type="button", value="Add row" )
+                        #step2.step-pane This is step 2
+                        #step3.step-pane This is step 3
+                        #step4.step-pane This is step 4
+                    .actions
+                        button.btn.btn-warning.btn-prev(style='float:left;margin-bottom: 10px;',type='button')
+                            i.icon-arrow-left
+                            | Prev
+                        button.btn.btn-warning.btn-next(style='float:right;margin-bottom: 10px;',type='button', data-last='Complete', data-type='submit')
+                            | Next
+                            i.icon-arrow-right
+                        input#submitform(type='submit', style='visibility:hidden', value='Submit', data-loading-text='Loading...')
+script.
+    $('#MyWizard').on('change', function(e, data) {
+        if(data.step===1  && data.direction==='next') {
+            console.log($('#FromDate').val());
+            if($('#FromDate').val()==null||$('#FromDate').val()==''){
+            $('#FromDate').focus();
+
+            return e.preventDefault();
+            }
+        }
+    });
+    $('#MyWizard').on('finished', function(e, data) {
+        console.log('finished');
+        $('#submitform').focus().click();
+    });
+    var rowNum = 0;
+    function addRow(frm) {
+        console.log(frm)
+        rowNum ++;
+        var row = '<div class="col-lg-12 panel"><div class="col-lg-3"><div class="form-group has-warning"><label for="Name" class="control-label">Employer Name</label><input id="toDate" type="text" required="required" class="form-control"></div></div><div class="col-lg-3"><div class="form-group has-warning"><label for="Name" class="control-label">From Date</label><input id="toDate" type="text" required="required" class="form-control"></div></div><div class="col-lg-3"><div class="form-group has-warning"><label for="Name" class="control-label">To Date</label><input id="toDate" type="text" required="required" class="form-control"></div></div><div class="col-lg-3"><div class="form-group has-warning"><label for="Name" class="control-label">Designation</label><input id="toDate" type="text" required="required" class="form-control"></div></div><div class="col-lg-12"><div class="form-group has-warning"><label for="Name" class="control-label">Job Profile</label><input id="toDate" type="text" required="required" class="form-control"></div></div><div class="col-lg-2"><input onclick="removeRow('+rowNum+');" type="button" value="Remove" class="form-control"></div></div>';
+        // var row = '<p id="rowNum'+rowNum+'">Item quantity: <input type="text" name="qty[]" size="4" value=""> Item name: <input type="text" name="name[]" value=""> <input type="button" value="Remove" onclick="removeRow('+rowNum+');"></p><p id="rowNum'+rowNum+'">Item quantity: <input type="text" name="qty[]" size="4" value=""> Item name: <input type="text" name="name[]" value="">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      <input type="button" value="Remove" onclick="removeRow('+rowNum+');"></p>';
+        jQuery('#itemRows').append(row);
+        // frm.add_qty.value = '';
+        // frm.add_name.value = '';
+    }
+    function removeRow(rnum) {
+        jQuery('#rowNum'+rnum).remove();
+    }

@@ -1,0 +1,31 @@
+//
+   Created by chinna on 22/4/14.
+
+#wrapper
+    #shop
+    // PAGE TITLE
+    header#page-title
+        .container
+            h1
+                strong Holidays
+            ul.breadcrumb
+                li.active Admin
+                li.active Holidays
+    section.container
+        .row
+            .col-lg-12
+                .responsive-calendar
+                    .controls
+                        a.btn.btn-info.pull-right(data-go='viewCalendar', href="#/adminCalendar") Calendar View
+                br
+                br
+                table#holidaysTable.table.table-bordered.table-hover.table-striped.tablesorter(ng-table='holidaysTable')
+                    tr(ng-repeat="holiday in $data")
+                        td(data-title='"#"')
+                            a(href='#/adminAddHoliday/{{holiday.holidayId}}') Edit
+                        td(data-title='"Holiday Id"', sortable='"holidayId"')
+                            | {{holiday.holidayId}}
+                        td(data-title='"Holiday Name"', sortable='"holidayName"')
+                            | {{holiday.holidayName}}
+                        td(data-title='"Holiday Date"', sortable='"holidayDate"')
+                            | {{holiday.holidayDate}}

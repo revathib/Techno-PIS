@@ -1,0 +1,29 @@
+#wrapper
+    #shop
+        // PAGE TITLE
+        header#page-title
+            .container
+                h1  Shift
+                    strong Management
+                ul.breadcrumb
+                    li.active HR
+                    li.active Shift Management
+        section.container
+            .row
+                .col-lg-12
+                    table#dataTableHrManageShift.table.table-bordered.table-hover.table-striped(ng-table='dataTableHrManageShift', show-filter='true')
+                        tr(ng-repeat='app in $data')
+                            td(data-title='"EmpId"', sortable='"empId"', filter='{ "empId": "text" }')
+                                | {{app.empId}}
+                            td(data-title='"Name"', sortable='"name"', filter='{ "name": "text" }')
+                                | {{app.name}}
+                            td(data-title='"From"', sortable='"from"', filter='{ "from": "text" }')
+                                | {{app.from}}
+                            td(data-title='"Shift Type"', sortable='"shiftType"', filter='{ "shiftType": "text" }')
+                                | {{app.shiftType}}
+                            td(data-title='"Options"')
+                                a(href='#/hrAssignShift/{{app.applicationID}}') Change Shift
+
+            //table#dataTables-hrManageShift.table.table-bordered.table-hover.table-striped.tablesorter(ng-table='dataTables-hrManageShift',show-filter="true" )
+
+

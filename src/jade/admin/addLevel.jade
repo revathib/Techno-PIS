@@ -1,0 +1,42 @@
+//   Created by Revathi on 29/4/14.
+
+#wrapper
+    #shop
+        // PAGE TITLE
+        header#page-title
+            .container
+                h1 Add
+                    strong Level
+                ul.breadcrumb
+                    li.active Admin
+                    li.active Manage Level
+                    li.active Add Level
+        section.container
+            .row
+                .col-lg-12
+                    .panel.panel-info
+                        .panel-body
+                            form(name="addLevelForm",class="form-horizontal",type="form",novalidate)
+                                .form-group.has-warning
+                                    label.control-label(for="level-code")
+                                        | Level Code
+                                        span(style='color:red') *
+                                    div(ng-class="{ 'has-error' : addLevelForm.levelCode.$invalid }")
+                                        input.form-control(type="text",name="levelCode",placeholder="Level Code",ng-model="levelCode",required,autofocus)
+                                        small(class="label label-danger", ng-show="addLevelForm.levelCode.$invalid && addLevelForm.levelCode.$dirty") Level Code required
+                                .form-group.has-warning
+                                    label.control-label(for='level-name')
+                                        | Level
+                                        span(style='color:red') *
+                                    div(ng-class="{ 'has-error' : addLevelForm.level.$invalid }")
+                                        input.form-control(type="text",name="level",placeholder="Level",ng-model="level",required)
+                                        small(class="label label-danger",ng-show="addLevelForm.level.$invalid && addLevelForm.level.$dirty") Level Required
+                                .form-group.has-warning
+                                    label.control-label(for='level-description')
+                                        | Description
+                                    textarea#levelDescription.form-control(type='text',name='levelDescription',placeholder='Description',ng-model='description')
+                                div
+                                    button.btn.btn-info(style='margin-right: 10px', ng-click="createNew()", ng-disabled=" addLevelForm.$invalid " )
+                                        | Add
+                                    input.btn.btn-warning(type='reset',value='Reset')
+

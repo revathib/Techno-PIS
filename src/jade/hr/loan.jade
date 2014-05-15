@@ -1,0 +1,29 @@
+#wrapper
+    #shop
+        // PAGE TITLE
+        header#page-title
+            .container
+                h1 Loan
+                    strong Management
+                ul.breadcrumb
+                    li.active HR
+                    li.active Loan Management
+        section.container
+            .row
+                .col-lg-12
+                    table#dataTableHrManageLoan.table.table-bordered.table-hover.table-striped(ng-table='dataTableHrManageLoan', show-filter='true')
+                        tr(ng-repeat='app in $data')
+                            td(data-title='"EmpId"', sortable='"empId"', filter='{ "empId": "text" }')
+                                | {{app.empId}}
+                            td(data-title='"Name"', sortable='"name"', filter='{ "name": "text" }')
+                                | {{app.name}}
+                            td(data-title='"Loan Type"', sortable='"loanType"', filter='{ "loanType": "text" }')
+                                | {{app.loanType}}
+                            td(data-title='"Application Date"', sortable='"applicationDate"', filter='{ "applicationDate": "text" }')
+                                | {{app.applicationDate}}
+                            td(data-title='"Amount"', sortable='"amount"', filter='{ "amount": "text" }')
+                                | {{app.amount}}
+                            td(data-title='"Options"')
+                                a(href='#/hrLoan/{{app.applicationID}}') Show Details
+
+

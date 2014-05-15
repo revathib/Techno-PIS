@@ -1,0 +1,31 @@
+#wrapper
+    #shop
+        // PAGE TITLE
+        header#page-title
+            .container
+                h1 Absent
+                    strong Management
+                ul.breadcrumb
+                    li.active HR
+                    li.active Absent Management
+        section.container
+            .row
+                .col-lg-12
+                    table#dataTableHrManageAbsent.table.table-bordered.table-hover.table-striped(ng-table='dataTableHrManageAbsent', show-filter='true')
+                        tr(ng-repeat='app in $data')
+                            td(data-title='"EmpId"', sortable='"empId"', filter='{ "empId": "text" }')
+                                | {{app.empId}}
+                            td(data-title='"Name"', sortable='"name"', filter='{ "name": "text" }')
+                                | {{app.name}}
+                            td(data-title='"Absent Type"', sortable='"absentType"', filter='{ "absentType": "text" }')
+                                | {{app.absentType}}
+                            td(data-title='"Application Date"', sortable='"applicationDate"', filter='{ "applicationDate": "text" }')
+                                | {{app.applicationDate}}
+                            td(data-title='"From"', sortable='"from"', filter='{ "from": "text" }')
+                                | {{app.from}}
+                            td(data-title='"To"', sortable='"to"', filter='{ "to": "text" }')
+                                | {{app.to}}
+                            td(data-title='"Options"')
+                                a(href='#/hrAbsent/{{app.applicationID}}') Show Details
+
+

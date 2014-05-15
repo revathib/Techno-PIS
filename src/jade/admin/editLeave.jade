@@ -1,0 +1,62 @@
+//
+   Created by chinna on 28/4/14.
+
+#wrapper
+    #shop
+        // PAGE TITLE
+        header#page-title
+            .container
+                h1 Admin
+                    strong Leave
+                ul.breadcrumb
+                    li.active Admin
+                    li.active Leave Management
+                    li.active Edit Leave
+
+        section.container
+            form(ng-submit="submit()")
+                div.col-lg-12
+                    .panel.panel-info.table-bordered
+                        .panel-heading
+                            | Leave Id : {{LeaveById.leaveId}}
+                        .panel-body
+                            .col-lg-12
+                                .form-group.has-warning
+                                    label.control-label(for='leaveCode') Leave Code
+                                    input#leaveCode.form-control(type='text', name='leaveCode', ng-model="LeaveById.leaveCode", value='{{LeaveById.leaveCode}}', required, autofocus)
+                            .col-lg-12
+                                .form-group.has-warning
+                                    label.control-label(for='leaveType') Leave Type
+                                    input#leaveType.form-control(type='text', name='leaveType', ng-model="LeaveById.leaveType", value='{{LeaveById.leaveType}}', required)
+                            .col-lg-12
+                                .form-group.has-warning
+                                    label.control-label(for='leaveCategory') Leave Category
+                                    select.form-control(
+                                        name='absentCategory',
+                                        ng-model='LeaveById.leaveCategory',
+                                        ng-options='c.categoryName as c.categoryName for c in absentCategories',
+                                        ng-selected="{{LeaveById.leaveCategory}}",
+                                        required)
+                                    //input#leaveCategory.form-control(type='text', name='leaveCategory', ng-model="LeaveById.leaveCategory", value='{{LeaveById.leaveCategory}}', required)
+                            .col-lg-12
+                                .form-group.has-warning
+                                    label.control-label(for='leaveType') Max Number of Leaves
+                                    input#leaveCount.form-control(type='text', name='leaveCount', ng-model="LeaveById.leaveCount", value='{{LeaveById.leaveCount}}', required)
+                            .col-lg-12(align='center')
+                                .form-group.has-success
+                                    button.btn.btn-success(ng-click="update(LeaveById.leaveId)") Update
+                                    |&nbsp;|&nbsp;
+                                    a.btn.btn-danger(ng-href='#adminAbsents', style="margin-right: 10px") Cancel
+                        //.panel-footer
+                        //    table#dataTableHrLeaveEmp.table.table-bordered.table-hover.table-striped(ng-table='dataTableHrLeaveEmp', show-filter='true')
+                        //        tr(ng-repeat='app in $data')
+                        //            td(data-title='"From Date"', sortable='"from"', filter='{ "from": "text" }')
+                        //                | {{app.from}}
+                        //            td(data-title='"To Date"', sortable='"to"', filter='{ "to": "text" }')
+                        //                | {{app.to}}
+                        //            td(data-title='"Total Days"', sortable='"totalDays"', filter='{ "totalDays": "text" }')
+                        //                | {{app.totalDays}}
+                        //            td(data-title='"Leave Type"', sortable='"leaveType"', filter='{ "leaveType": "text" }')
+                        //                | {{app.leaveType}}
+                        //            td(data-title='"Status"', sortable='"status"')
+                        //                | {{app.status}}

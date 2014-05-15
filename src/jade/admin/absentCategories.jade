@@ -1,0 +1,28 @@
+//
+   Created by chinna on 29/4/14.
+
+#wrapper
+    #shop
+    // PAGE TITLE
+    header#page-title
+        .container
+            h1
+                strong Leaves
+            ul.breadcrumb
+                li.active Admin
+                li.active Absent Categories
+    section.container
+        .row
+            .col-xs-3.pull-right
+                input(type="search", class="form-control", ng-model="searchTerm", placeholder="search")
+        br
+        .row
+            .col-lg-12
+                table#absentCategoriesTable.table.table-bordered.table-hover.table-striped.tablesorter(ng-table='absentCategoriesTable')
+                    tr(ng-repeat="category in $data | filter: searchTerm")
+                        td(data-title='"#"')
+                            a(href='#/adminAbsentCategory/{{category.categoryId}}') Edit
+                        td(data-title='"Category Code"', sortable='"categoryCode"')
+                            | {{category.categoryCode}}
+                        td(data-title='"Category Name"', sortable='"categoryName"')
+                            | {{category.categoryName}}

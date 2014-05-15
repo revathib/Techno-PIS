@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "manualAttandance.js",
+  "sourceRoot": "",
+  "sources": [
+    "manualAttandance.coffee"
+  ],
+  "names": [],
+  "mappings": ";AAAA;AAAA,EAAA,GAAG,CAAC,OAAJ,CAAY,YAAZ,EAAyB,SAAC,KAAD,GAAA,CAAzB,CAAA,CAAA;;AAAA,EAIA,GAAG,CAAC,UAAJ,CAAe,sBAAf,EAAuC,SAAC,MAAD,EAAQ,UAAR,GAAA,CAAvC,CAJA,CAAA;AAAA"
+}

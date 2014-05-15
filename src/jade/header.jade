@@ -1,0 +1,190 @@
+//   Created by Amit on 1/4/14.
+header#topNav()
+    .container(style="margin-top: 23px;")
+        // Mobile Menu Button
+        button.btn(data-toggle='collapse', data-target='.nav-main-collapse', style='margin-top: 13px;')
+            i.fa.fa-bars
+        // Logo text or image
+        a.logo(style='line-height: 50px; margin-top: 0px;')
+            | Personal Information System
+            //img(src='/images/logo.jpg', alt='Payroll Management System')
+        // Top Nav
+        .navbar-collapse.nav-main-collapse.pull-right.collapse.topFix(style='margin-top: 13px; height: auto;')
+            nav.nav-main.mega-menu
+                ul#topMain.nav.nav-pills.nav-main.scroll-menu
+                    li.dropdown
+                        a.dropdown-toggle
+                            | HR
+                            i.fa.fa-angle-down
+                        ul.dropdown-menu
+                            li.dropdown-submenu
+                                a
+                                    | Employee
+                                ul.dropdown-menu.pull-left
+                                    li
+                                        a(href='#/addEmployee') Add
+                                    li.divider
+                                    li
+                                        a(href='#/manageEmployeeList') Manage
+                            li.divider
+                            li
+                                a(href='#/hrManualAttandance') Manual Attendance
+                            li.divider
+                            li.dropdown-submenu
+                                a Leave Management
+                                ul.dropdown-menu.pull-left
+                                    li
+                                        a(href='#/hrLeave') Tracking Leave
+                                    li.divider
+                                    li
+                                        a(href='#/hrSubstituteEmployee') Substitute Employee
+
+                            li.divider
+                            li
+                                a(href='#/hrAbsent') Absent Management
+                            li.divider
+                            li
+                                a(href='#/hrLoan') Loan Management
+                            li.divider
+                            li
+                                a(href='#/hrOvertime') Overtime Management
+                            li.divider
+                            li
+                                a(href='#/hrReimbursement') Reimbursement Management
+                            li.divider
+                            li
+                                a(href='#/hrAssignShift') Shift Management
+                    li.dropdown
+                        a.dropdown-toggle
+                            | Admin
+                            i.fa.fa-angle-down
+                        ul.dropdown-menu
+                            li.dropdown-submenu
+                                a
+                                    | Leave
+                                ul.dropdown-menu.pull-left
+                                    li
+                                        a(href='#/adminAddAbsent') Add Absent
+                                    li.divider
+                                    li
+                                        a(href='#/adminAbsents') Manage Absent
+                                    li.divider
+                                    li
+                                        a(href='#/adminLeaveBenefits') Leave Benefits
+                                    li.divider
+                                    li
+                                        a(href='#/adminAddAbsentCategory') Add Absent Category
+                                    li.divider
+                                    li
+                                        a(href='#/adminAbsentCategories') Manage Absent Category
+                            li.divider
+                            li.dropdown-submenu
+                                a  Level
+                                ul.dropdown-menu.pull-left
+                                    li
+                                        a(href='#/adminAddLevel') Add
+                                    li.divider
+                                    li
+                                        a(href='#/adminLevels') Manage
+                            li.divider
+                            li.dropdown-submenu
+                                a
+                                    | Department
+                                ul.dropdown-menu.pull-left
+                                    li
+                                        a(href='#/adminAddDepartments') Add
+                                    li.divider
+                                    li
+                                        a(href='#/adminDepartments') Manage
+                            li.divider
+                            li.dropdown-submenu
+                                a
+                                    | Designation
+                                ul.dropdown-menu.pull-left
+                                    li
+                                        a(href='#/adminAddDesignation') Add
+                                    li.divider
+                                    li
+                                        a(href='#/adminDesignations') Manage
+                            li.divider
+                            li.dropdown-submenu
+                                a
+                                    | Holiday
+                                ul.dropdown-menu.pull-left
+                                    li
+                                        a(href='#/adminAddHoliday') Add
+                                    li.divider
+                                    li
+                                        a(href='#/adminHolidays') Manage
+                            li.divider
+                            li.dropdown-submenu
+                                a
+                                    | Loan
+                                ul.dropdown-menu.pull-left
+                                    li
+                                        a(href='#/adminAddLoan') Add
+                                    li.divider
+                                    li
+                                        a(href='#/adminLoans') Manage
+                            li.divider
+                            li.dropdown-submenu
+                                a
+                                    | Shift
+                                ul.dropdown-menu.pull-left
+                                    li
+                                        a(href='#/adminAddShift') Add
+                                    li.divider
+                                    li
+                                        a(href='') Manage
+                            li.divider
+                    li.dropdown
+                        a.dropdown-toggle
+                            | Employee
+                            i.fa.fa-angle-down
+                        ul.dropdown-menu
+                            li
+                                a(href='#/employeeProfile') Profile
+                            li.divider
+                            li
+                                a(href='#/employeeAttendance') Attendance
+                            li.divider
+                            //li
+                            //    a(href='#/leaveApply') Leave
+                            //li.divider
+
+                            li.dropdown-submenu
+                                a
+                                    | Leave
+                                ul.dropdown-menu.pull-left
+                                    li
+                                        a(href='#/leaveApply') Leave Apply
+                                    li.divider
+                                    li
+                                        a(href='#/supportDocument') Support Document
+                                    li.divider
+                                    li
+                                        a(href='#/absentApply') Absent
+
+                            li.divider
+                            li
+                                a(href='#/loanApply') Loan
+                            li.divider
+                            //li
+                            //    a(href='#/absentApply') Absent
+                            //li.divider
+                            li
+                                a(href='#/overtimeApply') Overtime
+                            li.divider
+                            li
+                                a(href='#/reimbursementApply') Reimbursement
+                    li.dropdown
+                        a.dropdown-toggle(href='#/dashboard')
+                            | {{user.username}}
+                            i.fa.fa-angle-down
+                        ul.dropdown-menu
+                            li
+                                a(href='#/changePassword') Change Password
+                            li.divider
+                            li
+                                a(href='#/logout') Logout
+span#header_shadow
